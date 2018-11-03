@@ -28,7 +28,7 @@ public class Primes
         	int currPrime = candidates.getEntry(1);
         	candidates.remove(1);
         	primes.add(currPrime);
-        	//getComposites(candidates,composites,currPrime);
+        	getComposites(candidates,composites,currPrime);
         }
         
         System.out.println("Candidate list is : "+candidates);
@@ -49,7 +49,14 @@ public class Primes
      */
     public static void getComposites(ListInterface<Integer> candidates, ListInterface<Integer> composites, Integer prime)
     {
-    	
+    	for(int i = 1; i <= candidates.getLength();) {
+    		if(candidates.getEntry(i)%prime == 0 ) {
+    			composites.add(candidates.getEntry(i));
+    			candidates.remove(i);
+    		}
+    		else
+    			i++;
+    	}
         // COMPLETE THIS METHOD
     }
     
