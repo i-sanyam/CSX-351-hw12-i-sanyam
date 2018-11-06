@@ -141,9 +141,8 @@ class AList<T> implements ListInterface<T> {
         int index = 1;
 
         while (!found && (index <= numberOfEntries)) {
-            if (anEntry.equals(list[index])) {
+            if ( anEntry.equals(list[index]) )
                 found = true;
-            }
             index++;
         } // end for
 
@@ -155,7 +154,7 @@ class AList<T> implements ListInterface<T> {
     } // end getLength
 
     public boolean isEmpty() {
-        return numberOfEntries == 0;
+        return (numberOfEntries == 0);
     } // end isEmpty
 
     public T[] toArray() {
@@ -211,6 +210,7 @@ class AList<T> implements ListInterface<T> {
 
         int removedIndex = givenPosition;
         int lastIndex = numberOfEntries;
+        // shift back entries till we reach the end of the array list.
         for (int index = removedIndex; index < lastIndex; index++) 
             list[index] = list[index + 1];
     } // end removeGap
